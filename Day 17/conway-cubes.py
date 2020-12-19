@@ -40,17 +40,13 @@ def fourDim(fp='input.txt'):
     state = dict()
     for y, row in enumerate(f):
         for x, initState in enumerate(row):
-            if initState == '.':
-                state[(x,y,0,0)] = '.'
-            elif initState == '#':
+            if initState == '#':
                 state[(x,y,0,0)] = '#'
 
     for cycle in range(6):
         activeNeighborCount = dict()
         for key in state:
             neighbors = set()
-            if state[key] != '#':
-                continue
             for dx in range(-1, 2):
                 for dy in range(-1, 2):
                     for dz in range(-1, 2):
